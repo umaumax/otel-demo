@@ -27,6 +27,8 @@ exporters:
     tls:
       insecure: true
 
+  file:
+    path: /data/dump.json
 
 processors:
   batch:
@@ -44,8 +46,8 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [debug, zipkin, otlp]
+      exporters: [debug, zipkin, otlp, file]
     metrics:
       receivers: [otlp]
       processors: [batch]
-      exporters: [debug, prometheus]
+      exporters: [debug, prometheus, file]

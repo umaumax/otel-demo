@@ -33,6 +33,7 @@ services:
       - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - ./data/:/data/
     ports:
       - "1888:1888" # pprof extension (for web GUI)
       - "8888:8888" # Prometheus metrics exposed by the collector
