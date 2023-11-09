@@ -27,19 +27,6 @@ exporters:
     tls:
       insecure: true
 
-  # http
-  otlphttp:
-    endpoint: http://jaeger-all-in-one:4318
-    traces_endpoint: http://jaeger-all-in-one:4318/v1/traces
-    metrics_endpoint: http://jaeger-all-in-one:4318/v1/metrics
-    logs_endpoint: http://jaeger-all-in-one:4318/v1/logs
-    tls:
-      insecure: true
-
-  logging:
-    verbosity: detailed
-    sampling_initial: 5
-    sampling_thereafter: 200
 
 processors:
   batch:
