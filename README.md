@@ -1,5 +1,12 @@
 # otel-demo
 
+## how to setup
+``` bash
+pip3 install 'opentelemetry-api==1.21.0'
+pip3 install 'opentelemetry-sdk==1.21.0'
+pip3 install 'opentelemetry-exporter-otlp==1.21.0'
+```
+
 ## how to run
 ``` bash
 chmod 0777 ./data/
