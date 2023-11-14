@@ -41,4 +41,6 @@ docker exec -it $CONTAINER_ID /busybox ash
 # to test metrics
 ./otel-client.py --grpc --metrics
 
+# to test context-propagation
+./otel-client.py -c
 ```

@@ -5,21 +5,28 @@ import argparse
 import time
 import os
 import pprint
+import requests
 
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
 
+# otel libs for trace
 from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter as OTLPSpanExporterGRPC
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter as OTLPSpanExporterHTTP
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
 
+# otel libs for metrics
 from opentelemetry import metrics
 from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
 from opentelemetry.sdk.metrics import MeterProvider
 from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 from typing import Iterable
 from opentelemetry.metrics import CallbackOptions, Observation
+
+# otel libs for propagation
+from opentelemetry import propagators
+from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapPropagator
 
 hostname = os.uname()[1]
 
@@ -79,6 +86,7 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-g', '--grpc', action='store_true')
     parser.add_argument('-m', '--metrics', action='store_true')
+    parser.add_argument('-c', '--context-propagation', action='store_true')
     parser.add_argument('args', nargs='*')
 
     args, extra_args = parser.parse_known_args()
@@ -138,6 +146,23 @@ def main():
         attributes = {"name": "hoge", "x": 123.4}
         for key, value in attributes.items():
             span.set_attribute(key, value)
+
+    if args.context_propagation:
+        with tracer.start_as_current_span("client operation"):
+            try:
+                url = "http://localhost:12345/hello"
+                carrier = {}
+                TraceContextTextMapPropagator().inject(carrier)
+                # example of carrier output
+                # {
+                #  'traceparent': '00-9345d022dfad27da68daeb28b2a7fba0-a85d9f58ddd66a4f-01'
+                # }
+                print(carrier)
+                header = {"traceparent": carrier["traceparent"]}
+                res = requests.get(url, headers=header)
+                print(f"send a request to {url}, got {len(res.content)} bytes")
+            except Exception as e:
+                print(f"send a request to {url} failed {e}")
 
     if args.metrics:
         while True:
