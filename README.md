@@ -7,7 +7,7 @@ pip3 install 'opentelemetry-sdk==1.21.0'
 pip3 install 'opentelemetry-exporter-otlp==1.21.0'
 ```
 
-## how to run
+## how to run otel servers environemnt
 ``` bash
 chmod 0777 ./data/
 docker compose up
@@ -30,4 +30,15 @@ docker cp busybox $CONTAINER_ID:/busybox
 
 docker exec -it $CONTAINER_ID /busybox ash
 # /busybox ls
+```
+
+## how to run demo app
+``` bash
+# to test trace span
+./otel-client.py
+./otel-client.py --grpc
+
+# to test metrics
+./otel-client.py --grpc --metrics
+
 ```
