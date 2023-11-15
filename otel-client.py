@@ -153,7 +153,7 @@ def main():
                 url = "http://localhost:12345/hello"
                 carrier = {}
                 TraceContextTextMapPropagator().inject(carrier)
-                # example of carrier output
+                # NOTE: example of carrier output
                 # {
                 #  'traceparent': '00-9345d022dfad27da68daeb28b2a7fba0-a85d9f58ddd66a4f-01'
                 # }
