@@ -34,11 +34,11 @@ tracer = trace.get_tracer(__name__)
 
 @app.get("/hello")
 async def hello(request: Request):
-    traceparent = request.headers.get('traceparent')
-    baggage = request.headers.get('baggage')
+    traceparente_field = request.headers.get('traceparent')
+    baggage_field = request.headers.get('baggage')
     carrier = {
-        "traceparent": traceparent,
-        "baggage": baggage
+        "traceparent": traceparente_field,
+        "baggage": baggage_field
     }
     ctx = TraceContextTextMapPropagator().extract(carrier)
     ctx = W3CBaggagePropagator().extract(carrier=carrier, context=ctx)
@@ -48,6 +48,8 @@ async def hello(request: Request):
     with tracer.start_as_current_span("/hello", context=ctx):
         # for logs
         print(request.headers)
+        print(f"Global context baggage: {baggage.get_all()}")
+        print(f"Span context baggage: {baggage.get_all(context=ctx)}")
         return {"message": "hello world!"}
 
 
