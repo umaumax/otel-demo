@@ -28,6 +28,10 @@ from opentelemetry.metrics import CallbackOptions, Observation
 from opentelemetry import propagators
 from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapPropagator
 
+# otel libs for baggage
+from opentelemetry import baggage
+from opentelemetry.baggage.propagation import W3CBaggagePropagator
+
 hostname = os.uname()[1]
 
 
@@ -157,8 +161,17 @@ def main():
                 # {
                 #  'traceparent': '00-9345d022dfad27da68daeb28b2a7fba0-a85d9f58ddd66a4f-01'
                 # }
-                print(carrier)
-                header = {"traceparent": carrier["traceparent"]}
+                ctx = baggage.set_baggage("context", "parent")
+                ctx = baggage.set_baggage("key1", "value1", context=ctx)
+                print("context:", ctx)
+                # NOTE: W3CBaggagePropagator adds below header
+                # {'baggage': 'context=parent,key1=value1'}
+                W3CBaggagePropagator().inject(carrier=carrier, context=ctx)
+                print("carrier:", carrier)
+                header = {
+                    "traceparent": carrier["traceparent"],
+                    "baggage": carrier["baggage"]
+                }
                 res = requests.get(url, headers=header)
                 print(f"send a request to {url}, got {len(res.content)} bytes")
             except Exception as e:

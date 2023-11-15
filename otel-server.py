@@ -17,6 +17,10 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExport
 # otel libs for propagation
 from opentelemetry.trace.propagation.tracecontext import TraceContextTextMapPropagator
 
+# otel libs for baggage
+from opentelemetry import baggage
+from opentelemetry.baggage.propagation import W3CBaggagePropagator
+
 app = FastAPI()
 
 resource = Resource(attributes={
@@ -31,8 +35,15 @@ tracer = trace.get_tracer(__name__)
 @app.get("/hello")
 async def hello(request: Request):
     traceparent = request.headers.get('traceparent')
-    carrier = {"traceparent": traceparent}
+    baggage = request.headers.get('baggage')
+    carrier = {
+        "traceparent": traceparent,
+        "baggage": baggage
+    }
     ctx = TraceContextTextMapPropagator().extract(carrier)
+    ctx = W3CBaggagePropagator().extract(carrier=carrier, context=ctx)
+    print("carrier:", carrier)
+    print("context:", ctx)
 
     with tracer.start_as_current_span("/hello", context=ctx):
         # for logs
