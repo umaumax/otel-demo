@@ -7,7 +7,7 @@ pip3 install 'opentelemetry-sdk==1.21.0'
 pip3 install 'opentelemetry-exporter-otlp==1.21.0'
 ```
 
-## how to run otel servers environemnt
+## how to run otel servers environment
 ``` bash
 chmod 0777 ./data/
 docker compose up
