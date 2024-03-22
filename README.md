@@ -15,6 +15,10 @@ docker compose up
 
 `./data/dump.json` includes trace and metrics data
 
+## how to access web GUI
+* Jaeger UI: http://localhost:16686/search
+* Zipkin: http://localhost:9411/zipkin/
+
 ## how to stop
 ``` bash
 docker compose down
