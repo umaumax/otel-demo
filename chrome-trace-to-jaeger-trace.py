@@ -75,7 +75,7 @@ def convert_chrome_trace_to_jaeger(
                 event)
             (span_id, pre_event) = event_stack[-1]
             if not option['broken-trace']:
-                assert event['name'] == pre_event['name'], 'pre_event["name"] must be {}: {}'.format(
+                assert event['name'] == pre_event['name'], 'pre_event["name"] must be {}: {}\nIf the input file is broken trace file, please add "-b" flag.'.format(
                     event['name'], pre_event)
             event_stack.pop()
             startTime = pre_event['ts']
