@@ -48,3 +48,8 @@ docker exec -it $CONTAINER_ID /busybox ash
 # to test context-propagation
 ./otel-client.py -c
 ```
+
+## how to use chrome-trace-to-jaeger-trace.py
+``` bash
+./chrome-trace-to-jaeger-trace.py ./samples/chrome-trace.json -o ./out/jaeger-trace.json
+```

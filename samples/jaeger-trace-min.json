@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "traceID": "trace-id",
+      "spans": [
+        {
+          "traceID": "🔥trace-id",
+          "spanID": "span-parent",
+          "operationName": "/api/hoge",
+          "references": [],
+          "startTime": 1711108969207419,
+          "duration": 3134,
+          "tags": [
+            {
+              "key": "int value",
+              "type": "int64",
+              "value": 1234
+            },
+            {
+              "key": "string value",
+              "type": "string",
+              "value": "hello"
+            }
+          ],
+          "logs": [
+            {
+              "timestamp": 1711108969217419,
+              "fields": [
+                {
+                  "key": "message",
+                  "type": "string",
+                  "value": "log message"
+                }
+              ]
+            }
+          ],
+          "processID": "p1",
+          "warnings": [],
+          "process": {},
+          "relativeStartTime": 0,
+          "depth": 0,
+          "hasChildren": true,
+          "childSpanIds": ["🔥child-span-id"]
+        },
+        {
+          "traceID": "🔥trace-id",
+          "spanID": "child-span-id",
+          "operationName": "/api/fuga",
+          "references": [
+            {
+              "refType": "CHILD_OF",
+              "traceID": "trace-id",
+              "spanID": "span-parent"
+            }
+          ],
+          "startTime": 1711108969227429,
+          "duration": 2762,
+          "tags": [
+            {
+              "key": "tag-key",
+              "type": "string",
+              "value": "hello"
+            }
+          ],
+          "logs": [],
+          "processID": "p2",
+          "warnings": [],
+          "process": {},
+          "relativeStartTime": 10,
+          "depth": 1,
+          "hasChildren": false,
+          "childSpanIds": []
+        }
+      ],
+      "processes": {
+        "p1": {
+          "serviceName": "processX",
+          "tags": [
+            {
+              "key": "pid",
+              "type": "int64",
+              "value": "10000"
+            }
+          ]
+        },
+        "p2": {
+          "serviceName": "processY",
+          "tags": [
+            {
+              "key": "pid",
+              "type": "int64",
+              "value": "10001"
+            }
+          ]
+        }
+      },
+      "warnings": null
+    }
+  ]
+}
