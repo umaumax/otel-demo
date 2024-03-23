@@ -1,10 +1,10 @@
 {
   "data": [
     {
-      "traceID": "trace-id",
+      "traceID": "123",
       "spans": [
         {
-          "traceID": "🔥trace-id",
+          "traceID": "🔥123",
           "spanID": "span-parent",
           "operationName": "/api/hoge",
           "references": [],
@@ -52,16 +52,16 @@
           "childSpanIds": ["child-span-id"]
         },
         {
-          "traceID": "🔥trace-id",
+          "traceID": "🔥123",
           "spanID": "child-span-id",
           "operationName": "/api/fuga",
           "references": [
             {
               "refType": "CHILD_OF",
-              "traceID": "trace-id",
+              "traceID": "123",
               "spanID": "span-parent",
               "span": {
-                "traceID": "🔥trace-id",
+                "traceID": "🔥123",
                 "spanID": "🔥span-parent",
                 "operationName": "🔥/api/hoge",
                 "references": [],
