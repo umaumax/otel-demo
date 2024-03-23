@@ -104,7 +104,7 @@ def convert_chrome_trace_to_jaeger(
                 "operationName": event['name'],
                 "references": references,
                 "startTime": startTime,  # us
-                "duration": duration,  # ms
+                "duration": duration,  # us
                 "tags": [
                     # {
                     # "key": "int value",
