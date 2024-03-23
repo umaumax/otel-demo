@@ -1,33 +1,22 @@
 {
     "data": [
         {
-            "traceID": "db6db63ae8bf11eeadad7e1220147a85",
+            "traceID": "a42e5e4",
             "spans": [
                 {
-                    "traceID": "db6db48ce8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:2",
                     "operationName": "aten::empty",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db48ce8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:1"
                         }
                     ],
                     "startTime": 1666382280874333,
                     "duration": 956319,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
@@ -38,30 +27,19 @@
                     "childSpanIds": []
                 },
                 {
-                    "traceID": "db6db518e8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:5",
                     "operationName": "nccl:all_reduce",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db518e8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:4"
                         }
                     ],
                     "startTime": 1666382282441741,
                     "duration": 183,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
@@ -72,154 +50,108 @@
                     "childSpanIds": []
                 },
                 {
-                    "traceID": "db6db540e8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:4",
                     "operationName": "record_param_comms",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db540e8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:3"
                         }
                     ],
                     "startTime": 1666382281830685,
                     "duration": 611248,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
                     "process": {},
                     "relativeStartTime": 0,
                     "depth": 0,
-                    "hasChildren": false,
-                    "childSpanIds": []
+                    "hasChildren": true,
+                    "childSpanIds": [
+                        "span:5"
+                    ]
                 },
                 {
-                    "traceID": "db6db568e8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:3",
                     "operationName": "record_param_comms",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db568e8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:1"
                         }
                     ],
                     "startTime": 1666382281830683,
                     "duration": 611252,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
                     "process": {},
                     "relativeStartTime": 0,
                     "depth": 0,
-                    "hasChildren": false,
-                    "childSpanIds": []
+                    "hasChildren": true,
+                    "childSpanIds": [
+                        "span:4"
+                    ]
                 },
                 {
-                    "traceID": "db6db586e8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:1",
                     "operationName": "record_param_comms",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db586e8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:0"
                         }
                     ],
                     "startTime": 1666382280874291,
                     "duration": 1567647,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
                     "process": {},
                     "relativeStartTime": 0,
                     "depth": 0,
-                    "hasChildren": false,
-                    "childSpanIds": []
+                    "hasChildren": true,
+                    "childSpanIds": [
+                        "span:2",
+                        "span:3"
+                    ]
                 },
                 {
-                    "traceID": "db6db5a4e8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:0",
                     "operationName": "c10d::barrier",
                     "references": [],
                     "startTime": 1666382280874284,
                     "duration": 1567655,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
                     "process": {},
                     "relativeStartTime": 0,
                     "depth": 0,
-                    "hasChildren": false,
-                    "childSpanIds": []
+                    "hasChildren": true,
+                    "childSpanIds": [
+                        "span:1"
+                    ]
                 },
                 {
-                    "traceID": "db6db5d6e8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:6",
                     "operationName": "record_param_comms",
                     "references": [],
                     "startTime": 1666382282442058,
                     "duration": 52,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
@@ -230,30 +162,19 @@
                     "childSpanIds": []
                 },
                 {
-                    "traceID": "db6db5fee8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:9",
                     "operationName": "aten::empty",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db5fee8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:8"
                         }
                     ],
                     "startTime": 1666382282442255,
                     "duration": 21,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
@@ -264,66 +185,48 @@
                     "childSpanIds": []
                 },
                 {
-                    "traceID": "db6db61ce8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:8",
                     "operationName": "record_param_comms",
                     "references": [
                         {
                             "refType": "CHILD_OF",
-                            "traceID": "db6db61ce8bf11eeadad7e1220147a85",
+                            "traceID": "a42e5e4",
                             "spanID": "span:7"
                         }
                     ],
                     "startTime": 1666382282442251,
                     "duration": 89,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
                     "process": {},
                     "relativeStartTime": 0,
                     "depth": 0,
-                    "hasChildren": false,
-                    "childSpanIds": []
+                    "hasChildren": true,
+                    "childSpanIds": [
+                        "span:9"
+                    ]
                 },
                 {
-                    "traceID": "db6db63ae8bf11eeadad7e1220147a85",
+                    "traceID": "a42e5e4",
                     "spanID": "span:7",
                     "operationName": "c10d::barrier",
                     "references": [],
                     "startTime": 1666382282442248,
                     "duration": 93,
-                    "tags": [
-                        {
-                            "key": "int value",
-                            "type": "int64",
-                            "value": 1234
-                        },
-                        {
-                            "key": "string value",
-                            "type": "string",
-                            "value": "hello"
-                        }
-                    ],
+                    "tags": [],
                     "logs": [],
                     "processID": "pid(694985)-tid(694985)",
                     "warnings": [],
                     "process": {},
                     "relativeStartTime": 0,
                     "depth": 0,
-                    "hasChildren": false,
-                    "childSpanIds": []
+                    "hasChildren": true,
+                    "childSpanIds": [
+                        "span:8"
+                    ]
                 }
             ],
             "processes": {
